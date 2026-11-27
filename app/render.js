@@ -17,10 +17,25 @@ export function verdictBadge(verdict) {
   return `<span class="verdict verdict-${verdict}">${VERDICT_LABELS[verdict]}</span>`;
 }
 
+// Cross-store prices: `also` is either a plain note (kept as-is) or a list
+// of { store, price, url } checked at other stores, rendered as links so a
+// shopper can compare before they buy. A cheaper price elsewhere is flagged.
+export function alsoHtml(d) {
+  if (!d.also) return '';
+  if (typeof d.also === 'string') return `<p class="also">${esc(d.also)}</p>`;
+  const items = d.also
+    .map((a) => {
+      const cheaper = a.price < d.sale ? ' <span class="cheaper">cheaper</span>' : '';
+      return `<a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.store)} ${money(a.price)}</a>${cheaper}`;
+    })
+    .join(' · ');
+  return `<p class="also">Also at ${items}</p>`;
+}
+
 export function dealCard(d) {
   const pct = discountPct(d.sale, d.usual);
   const unit = d.unit ? esc(d.unit) : '';
-  const also = d.also ? `<p class="also">${esc(d.also)}</p>` : '';
+  const also = alsoHtml(d);
   return `<article class="card" data-id="${esc(d.id)}">
   <div class="card-top">
     <span class="store">${esc(d.store)}</span>
@@ -51,7 +66,7 @@ export function dealList(deals) {
 export function dealDetail(d) {
   const pct = discountPct(d.sale, d.usual);
   const unit = d.unit ? esc(d.unit) : '';
-  const also = d.also ? `<p class="also">${esc(d.also)}</p>` : '';
+  const also = alsoHtml(d);
   return `<article class="detail">
   <p class="crumbs"><a href="#/">← All deals</a></p>
   <div class="card-top">

@@ -1,6 +1,6 @@
 # DealHound — Black Friday 2026 Deal Finder
 
-A deal finder for Black Friday 2026: 33 real deals, each found and price-checked
+A deal finder for Black Friday 2026: 75 real deals, each found and price-checked
 on 27 November 2026 at its store or in a deals report that names the store.
 Search and filter by category, store and discount; sort by biggest discount,
 biggest saving or lowest price. Every deal shows its sale price, usual price,

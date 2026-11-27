@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DealHound — Black Friday 2026 Deal Finder</title>
+<meta name="description" content="Black Friday 2026 deals, each price-checked on 27 November 2026. Search and filter by category, store and discount.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="brand"><span class="paw" aria-hidden="true">◉</span> DealHound</p>
+    <h1>Black Friday 2026, sniffed out.</h1>
+    <p class="tagline">33 real deals, each found and price-checked today at its store.
+      No inflated “was” prices, no guesses — every deal carries its check time,
+      its source, and an honest verdict.</p>
+    <ul class="stats">
+      <li><strong>33</strong> deals checked</li>
+      <li><strong>5</strong> stores</li>
+      <li><strong>67%</strong> biggest cut</li>
+      <li><strong>$1,602</strong> biggest saving</li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="controls" aria-label="Find a deal">
+    <div class="control search-box">
+      <label for="search">Search deals</label>
+      <input id="search" type="search" placeholder="Try “AirPods”, “TV”, “vacuum”…">
+    </div>
+    <div class="control">
+      <label for="category">Category</label>
+      <select id="category"><option value="all">All categories</option></select>
+    </div>
+    <div class="control">
+      <label for="store">Store</label>
+      <select id="store"><option value="all">All stores</option></select>
+    </div>
+    <div class="control">
+      <label for="discount">Discount</label>
+      <select id="discount">
+        <option value="0">Any discount</option>
+        <option value="25">25% off or more</option>
+        <option value="40">40% off or more</option>
+        <option value="50">50% off or more</option>
+      </select>
+    </div>
+    <div class="control">
+      <label for="sort">Sort by</label>
+      <select id="sort">
+        <option value="verdict">Best verdict first</option>
+        <option value="discount">Biggest discount</option>
+        <option value="saving">Biggest saving ($)</option>
+        <option value="price-asc">Lowest price</option>
+        <option value="price-desc">Highest price</option>
+      </select>
+    </div>
+    <button id="clear" type="button">Clear filters</button>
+  </section>
+
+  <p id="count" class="count" aria-live="polite"></p>
+
+  <section id="list-view">
+    <div id="results" class="grid"></div>
+  </section>
+  <section id="detail-view" hidden></section>
+
+  <section class="how">
+    <h2>How a deal earns its verdict</h2>
+    <ul class="verdict-key">
+      <li><span class="verdict verdict-new-low">NEW LOW</span> — the lowest price ever seen for it.</li>
+      <li><span class="verdict verdict-strong">STRONG PRICE</span> — a genuine deep cut off the usual price.</li>
+      <li><span class="verdict verdict-routine">ROUTINE SALE</span> — a real cut, but a common sale price, or a price that has been around a while.</li>
+    </ul>
+    <p>Every price on this page was read on <strong>27 November 2026</strong> at the
+      store named on the deal, or in a deals report that names that store. The
+      discount on each card is worked out from the two prices shown, so they
+      always add up. Prices move fast on Black Friday — check the price at
+      checkout before you pay.</p>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p>DealHound is an independent deal finder built for Black Friday 2026. It is
+    not affiliated with Amazon, Best Buy, Walmart, Target, Apple, or any store
+    named here. Store links go to the store’s own pages.</p>
+</footer>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
